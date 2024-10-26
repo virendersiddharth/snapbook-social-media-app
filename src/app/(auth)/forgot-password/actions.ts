@@ -38,7 +38,7 @@ export async function forgotPassword({email}: {email: string}){
             }
         })
         console.log("pass 3")
-        const resetPasswordLink = `http://localhost:3000/reset-password/${resetPasswordToken}`
+        const resetPasswordLink = `https://snapbook-by-virender.vercel.app/reset-password/${resetPasswordToken}`
         console.log(resetPasswordLink)
         await mailSender({
             email,
