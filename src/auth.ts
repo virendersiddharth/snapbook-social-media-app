@@ -43,8 +43,8 @@ interface DatabaseUserAttributes {
 export const google = new Google(
   process.env.GOOGLE_CLIENT_ID!,
   process.env.GOOGLE_CLIENT_SECRET!,
-  `https://snapbook-by-virender.vercel.app/api/auth/callback/google`,
-  // `${process.env.NEXT_BASE_URL!}/api/auth/callback/google`,
+  // `https://snapbook-by-virender.vercel.app/api/auth/callback/google`,
+  `${process.env.NEXT_BASE_URL!}/api/auth/callback/google`,
 );
 
 export const validateRequest = cache(
