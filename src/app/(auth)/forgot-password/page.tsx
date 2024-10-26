@@ -61,7 +61,7 @@ export default function Page() {
           )}
         />
         <LoadingButton loading={isPending} type="submit" className="w-full">
-          Create account
+          Reset Password
         </LoadingButton>
       </form>
     </Form>

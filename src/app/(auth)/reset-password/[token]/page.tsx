@@ -83,7 +83,7 @@ export default function UpdatePassword() {
               )}
             />
             <LoadingButton loading={isPending} type="submit" className="w-full">
-              Log in
+              Save Password
             </LoadingButton>
           </form>
         </Form>

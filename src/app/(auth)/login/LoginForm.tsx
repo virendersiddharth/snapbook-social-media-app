@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { login } from "./actions";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [error, setError] = useState<string>();
@@ -40,7 +41,7 @@ export default function LoginForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 flex flex-col">
         {error && <p className="text-center text-destructive">{error}</p>}
         <FormField
           control={form.control}
@@ -68,6 +69,11 @@ export default function LoginForm() {
             </FormItem>
           )}
         />
+        <Link href={"/forgot-password"}
+          className="text-primary self-end"
+        >
+          Forgot password
+        </Link>
         <LoadingButton loading={isPending} type="submit" className="w-full">
           Log in
         </LoadingButton>
