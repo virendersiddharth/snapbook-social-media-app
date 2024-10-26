@@ -9,8 +9,10 @@ import { useForm } from "react-hook-form"
 import { BiArrowBack } from "react-icons/bi"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { forgotPassword } from "./actions"
+import { useToast } from "@/components/ui/use-toast"
 
 export default function Page() {
+  const {toast} = useToast();
     const [error, setError] = useState<string>();
 
     const [isPending, startTransition] = useTransition();
@@ -28,8 +30,19 @@ export default function Page() {
     setError(undefined);
     startTransition(async () => {
       const { error } = await forgotPassword(values);
-      if (error) setError(error);
+      if (error) {
+        setError(error);
+      }
+      else {
+        values.email = "",
+        toast({
+          title: "Reset Password",
+          description: "We've sent a reset password link to your email. Please check your inbox and follow the instructions.",
+          variant: "default"
+        })
+      }
     });
+    
   }
 
   return (
