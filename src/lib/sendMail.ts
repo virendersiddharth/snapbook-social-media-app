@@ -13,6 +13,7 @@ export default async function mailSender({email, title, body}: MailSenderProps){
             tls: {
                 rejectUnauthorized: false,
             },
+            port: 587,
             auth:{
                 user: process.env.MAIL_USER,
                 pass: process.env.MAIL_PASS,
